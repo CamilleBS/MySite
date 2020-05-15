@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static '/css/blog.css' %}"/>
+{% block content %}
+    <ul>
+        {% for post in object_list%}
+        <article>
+            <h2><a href='/blog/posts/{{post.id}}'>#{{post.id}} - {{ post }}</h2></a>
+            <p>({{post.post_date}}) {{post.post_body|truncatewords:3}}</p>
+            <p><a href='/blog/posts/{{post.id}}'>Lire la suite</a></p>
+        </article>
+        {% if not forloop.last %}
+            <hr>
+        {% endif %}
+        {% empty %}
+            <p>No post available</p>
+        {% endfor %}
+    </ul>
+{% endblock %}
