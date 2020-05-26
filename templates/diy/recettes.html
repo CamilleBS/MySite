@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content  %}
+
+<br>
+    <ul>
+        {% for recette in recettes%}
+        <article>
+            <h2><a href="{% url 'diy:recette_detail' pk=recette.pk %}">#{{recette.id}} - {{ recette }}</h2></a>
+            <p>({{recette.created_date}}) {{recette.text|truncatewords:3}}</p>
+            <p>{{recette.autor}}</p>
+            <p><a href="{% url 'diy:recette_detail' pk=recette.pk %}">Lire la suite</a></p>
+        </article>
+        {% if not forloop.last %}
+            <hr>
+        {% endif %}
+        {% empty %}
+            <p>Aucune recette</p>
+        {% endfor %}
+        <a href="{% url 'diy:recette_edit' %}">Ajouter une recette</a>
+    </ul>
+
+{% endblock %}

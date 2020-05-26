@@ -11,7 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v4.0.1">
-    <title>Carousel Template · Bootstrap</title>
+    <title>Mon nom de domaine</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/carousel/">
 
@@ -42,21 +42,30 @@
 <body>
     <header>
     <nav class="navbar navbar-expand-sm navbar-dark fixed-top">
-        <div class="navbar-inner">
-            <ul class="navbar-nav mr-auto">
-                <a href="{% url 'home' %}" class="navbar-brand" >Home</a>
-                <a href="/blog" class="navbar-brand" >Blog</a>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                        <a class="nav-link" href=/about/>About</h2></a>
-                        </li>
-                        <li class="nav-item active">
-                        <a class="nav-link" Href=/contact/>Contact</h2></a>
-                        </li>
-                    </ul>
-                </div>
-            </ul>   
+        <div class="navbar-collapse collapse">
+          <ul class="navbar-nav">
+            <a href="/diy" class="navbar-brand" >Fais-le toi-même!</a>
+            <li class="nav-item-active">
+              <a class="nav-link" href="{% url 'home' %}">Home</h2></a>
+              </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'blog:post_list' %}">Blog</h2></a>
+              </li>
+            <li class="nav-item">
+            <a class="nav-link" href="{% url 'about' %}">About</h2></a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" Href="{% url 'contact' %}">Contact</h2></a>
+            </li>
+         </ul>
+         <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" Href=/accounts/login/>Mon Compte</h2></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" Href=/accounts/logout/>Déconnexion</h2></a>
+          </li>
+         </ul>
         </div>
     </nav>
 </header>

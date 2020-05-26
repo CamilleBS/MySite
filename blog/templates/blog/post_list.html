@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
-{% load static %}
-<link rel="stylesheet" type="text/css" href="{% static '/css/blog.css' %}"/>
+
 {% block content %}
+<br>
     <ul>
-        {% for post in object_list%}
+        {% for post in posts%}
         <article>
-            <h2><a href='/blog/posts/{{post.id}}'>#{{post.id}} - {{ post }}</h2></a>
-            <p>({{post.post_date}}) {{post.post_body|truncatewords:3}}</p>
-            <p><a href='/blog/posts/{{post.id}}'>Lire la suite</a></p>
+            <h2><a href="{% url 'blog:post_detail' pk=post.pk %}">#{{post.id}} - {{ post }}</h2></a>
+            <p>({{post.created_date}}) {{post.text|truncatewords:3}}</p>
+            <p><a href="{% url 'blog:post_detail' pk=post.pk %}">Lire la suite</a></p>
         </article>
         {% if not forloop.last %}
             <hr>
@@ -15,5 +15,7 @@
         {% empty %}
             <p>No post available</p>
         {% endfor %}
+        <a href="{% url 'blog:new_post' %}">Ajouter un article</a>
     </ul>
+
 {% endblock %}
